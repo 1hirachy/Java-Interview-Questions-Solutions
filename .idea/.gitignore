@@ -1,0 +1,48 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+
+*.class
+
+# VS Code
+.classpath
+.project
+.settings/
+.vscode
+bin/
+
+# Mobile Tools for Java (J2ME)
+.mtj.temp/
+
+# pom.xml.tag
+pom.xml.
+
+# Package/Temp Files #
+#.jar
+*.war
+*.ear
+.idea/
+.gradle/
+.build/
+target/
+target/*
+out/*
+out/**
+out/
+caches/
+native/
+.DS_Store
+
+# Virtual machine crash logs, see https://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+*.iml
+results/**
+tmp/
+
+**/aws/credentials
+
+# Terraform
+**/.terraform
+**/.terraform.lock.hcl
+**/.terraform.tfstate

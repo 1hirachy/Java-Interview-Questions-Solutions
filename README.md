@@ -5,9 +5,11 @@
 
 - **Core Java Concepts**: Object-Oriented Programming, Exception Handling, Collections, etc.
 - **Data Structures**: Arrays, Linked Lists, Stacks, Queues, HashMaps, Trees, Graphs, etc.
-- **Algorithms**: Sorting, Searching, Dynamic Programming, Greedy Algorithms, etc.
-- **Concurrency & Multithreading**
-- **Design Patterns**
+- **[Algorithms](src/test/java/Algorithm)**: Sorting, Searching, Dynamic Programming, Greedy Algorithms, etc.
+- **[Concurrency & Multithreading](src/test/java/ConcurrencyAndMultithreading)**
+- **[Design Patterns](src/test/java/DesignPatterns)**
+- **[String Manipulation](src/test/java/StringManupulation)**
+
 
 ## How to Use
 

@@ -1,5 +1,8 @@
 package StringManupulation;
 
+/**
+ * Write a java program to reverse the given String
+ */
 public class ReverseString {
 
     public static void main(String[] args) {

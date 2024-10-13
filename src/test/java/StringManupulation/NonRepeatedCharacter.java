@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class NonRepeatedCharacter {
 
+
     public static void main(String[] args) {
         String input = "BBst";
         System.out.println("First Non Repeated Character: " + findFirstNonRepeatedString(input));

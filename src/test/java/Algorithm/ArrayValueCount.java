@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
+   /**
     # Given an array which will contain various numeric values,
     # return how many times each value is observed in the array before its current position.
     # E.g. given [5, 4, 5, 9, 5, 5]

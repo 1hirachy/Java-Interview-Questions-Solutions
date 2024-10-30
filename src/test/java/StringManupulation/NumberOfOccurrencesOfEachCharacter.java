@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
     /**
      * Write a java program to count number of occurrences of each character in a String
      */
+
 public class NumberOfOccurrencesOfEachCharacter {
 
     public static String countOccurrence(String str) {

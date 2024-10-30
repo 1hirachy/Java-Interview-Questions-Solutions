@@ -1,7 +1,6 @@
 package StringManupulation;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
     /**
@@ -14,7 +13,7 @@ public class DuplicateCharacters {
         Map<Character, Integer> countMap = new LinkedHashMap<>();
 
         // Convert the string to lowercase to make it case-sensitive
-        str.toLowerCase();
+        str = str.toLowerCase();
 
         // Iterate over each character of the String
         for (char c : str.toCharArray()) {

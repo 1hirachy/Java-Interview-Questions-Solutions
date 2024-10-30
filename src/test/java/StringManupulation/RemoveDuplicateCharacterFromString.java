@@ -2,10 +2,10 @@ package StringManupulation;
 
 import java.util.*;
 
+    /**
+     * Wrote a java program to remove duplicate character from String?
+     */
 
-/**
- * Wrote a java program to remove duplicate character from String?
- */
 public class RemoveDuplicateCharacterFromString {
 
     public static String removeDuplicateString(String str) {

@@ -1,6 +1,8 @@
-package StringManupulation;
+package string.manupulation;
 
-    /**
+import org.junit.jupiter.api.Test;
+
+/**
      * Wrote a java program to reverse words in a String?
      */
 public class ReverseAStringWordByWord {
@@ -23,7 +25,8 @@ public class ReverseAStringWordByWord {
     }
 
 
-    public static void main(String[] args) {
+    @Test
+    void testReverseWords() {
 
         String input = "Life is fun with Java";
         System.out.println(reverseWords(input));

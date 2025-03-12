@@ -1,4 +1,6 @@
-package StringManupulation;
+package string.manupulation;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -35,8 +37,8 @@ public class DuplicateCharacters {
     }
 
 
-    public static void main(String[] args) {
-
+    @Test
+    void testDuplicateChar(){
         String input = "I Love Java";
         System.out.println(findDuplicateChar(input));
     }

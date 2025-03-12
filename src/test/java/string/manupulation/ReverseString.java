@@ -1,6 +1,8 @@
-package StringManupulation;
+package string.manupulation;
 
-    /**
+import org.junit.jupiter.api.Test;
+
+/**
      * Write a java program to reverse the given String
      */
 
@@ -44,7 +46,8 @@ package StringManupulation;
     }
 
 
-    public static void main(String[] args) {
+    @Test
+    void testReverseWords() {
         System.out.println(usingStringBuilder("Life is Good"));
         System.out.println(reverseWord(" Practice till you succeed"));
     }

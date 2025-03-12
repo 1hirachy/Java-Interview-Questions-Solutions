@@ -1,4 +1,6 @@
-package StringManupulation;
+package string.manupulation;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -37,7 +39,9 @@ public class NumberOfOccurrencesOfEachCharacter {
         return result;
     }
 
-    public static void main(String[] args) {
+
+    @Test
+    void testCountOccurrence() {
 
         String input = "Count The String";
         String result = countOccurrence(input);

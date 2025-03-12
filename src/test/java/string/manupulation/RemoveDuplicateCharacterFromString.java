@@ -1,12 +1,17 @@
-package StringManupulation;
+package string.manupulation;
 
-import java.util.*;
+import org.junit.jupiter.api.Test;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 
     /**
      * Wrote a java program to remove duplicate character from String?
      */
 
 public class RemoveDuplicateCharacterFromString {
+
 
     public static String removeDuplicateString(String str) {
 
@@ -20,7 +25,7 @@ public class RemoveDuplicateCharacterFromString {
                 charset.add(c);
             }
         } catch (Exception e) {
-           return "Invalid Input";
+            return "Invalid Input";
         }
 
 
@@ -34,9 +39,10 @@ public class RemoveDuplicateCharacterFromString {
         return resultSet.toString();
     }
 
-    public static void main(String[] args) {
+    @Test
+    void testRemoveDuplicateString() {
 
-        String input = "ABACDEAFCF" ;
+        String input = "ABACDEAFCF";
         System.out.println("Output: " + removeDuplicateString(input));
     }
 }

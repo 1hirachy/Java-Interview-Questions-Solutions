@@ -1,4 +1,6 @@
-package StringManupulation;
+package string.manupulation;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -32,7 +34,9 @@ public class FirstNonRepeatedCharacter {
         return '\0';
     }
 
-        public static void main(String[] args) {
+
+    @Test
+    void testFindNonRepeatedCharacter(){
 
         String input = "Abaafwfswqq3" ;
         System.out.println(firstNonRepeatedCharacter(input));

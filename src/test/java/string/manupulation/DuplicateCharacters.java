@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
      */
 public class DuplicateCharacters {
 
-    public static String findDuplicateChar(String str){
+    public static String findDuplicateChar(String str) {
 
         Map<Character, Integer> countMap = new LinkedHashMap<>();
 
@@ -30,7 +30,7 @@ public class DuplicateCharacters {
         // Using Java Streams to build the result string
         String result = countMap.entrySet()
                 .stream()
-                .filter(entry -> entry.getValue() >1)
+                .filter(entry -> entry.getValue() > 1)
                 .map(entry -> entry.getKey() + " : " + entry.getValue())
                 .collect(Collectors.joining(" \n"));
         return result;
@@ -38,7 +38,7 @@ public class DuplicateCharacters {
 
 
     @Test
-    void testDuplicateChar(){
+    void testDuplicateChar() {
         String input = "I Love Java";
         System.out.println(findDuplicateChar(input));
     }

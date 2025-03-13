@@ -2,7 +2,7 @@ package string.manupulation;
 
 import org.junit.jupiter.api.Test;
 
-/**
+    /**
      * Wrote a java program to check if the String is Palindrome
      */
 public class Palindrome {
@@ -32,4 +32,3 @@ public class Palindrome {
 
     }
 }
-

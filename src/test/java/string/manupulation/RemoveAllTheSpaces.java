@@ -2,7 +2,8 @@ package string.manupulation;
 
 import org.junit.jupiter.api.Test;
 
-//Write a java program to remove all the spaces exist in the String
+    //Write a java program to remove all the spaces exist in the String
+
 public class RemoveAllTheSpaces {
 
     public static String removeSpaces(String str) {
@@ -25,7 +26,7 @@ public class RemoveAllTheSpaces {
 
 
     @Test
-    void testRemoveSpaces(){
+    void testRemoveSpaces() {
 
         String input = "Computer is computing !";
         System.out.println(removeSpaces(input));

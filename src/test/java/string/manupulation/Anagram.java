@@ -5,15 +5,16 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import java.util.Arrays;
 
-/**
- * Checks if two words are anagrams (contains same characters with same frequency in any order).
- *
- * @param s1 The first string to be checked
- * @param s2 The second string to be checked
- * @return true if they are anagrams of each other
- */
+
+    /**
+     * Checks if two words are anagrams (contains same characters with same frequency in any order).
+     *
+     * @param s1 The first string to be checked
+     * @param s2 The second string to be checked
+     * @return true if they are anagrams of each other
+     */
+
 public class Anagram {
 
    public static boolean isAnagram(String s1, String s2) {

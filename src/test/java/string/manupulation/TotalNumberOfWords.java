@@ -2,9 +2,10 @@ package string.manupulation;
 
 import org.junit.jupiter.api.Test;
 
-/**
- * Write a java program to find total number of words in a String?
- */
+    /**
+     * Write a java program to find total number of words in a String?
+     */
+
 public class TotalNumberOfWords {
 
     public static int numberOfWords(String str) {

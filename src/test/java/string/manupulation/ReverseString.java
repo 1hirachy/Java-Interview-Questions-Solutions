@@ -2,7 +2,7 @@ package string.manupulation;
 
 import org.junit.jupiter.api.Test;
 
-/**
+    /**
      * Write a java program to reverse the given String
      */
 
@@ -52,9 +52,3 @@ import org.junit.jupiter.api.Test;
         System.out.println(reverseWord(" Practice till you succeed"));
     }
 }
-
-
-
-
-
-

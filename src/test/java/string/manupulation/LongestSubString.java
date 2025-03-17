@@ -1,4 +1,4 @@
-package StringManupulation;
+package string.manupulation;
 import java.util.*;
 
 public class LongestSubString {

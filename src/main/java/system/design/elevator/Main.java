@@ -1,12 +1,7 @@
 package system.design.elevator;
 
-import system.design.elevator.enums.Direction;
-import system.design.elevator.enums.DoorAction;
 import system.design.elevator.enums.FloorNumber;
-import system.design.elevator.models.Door;
 import system.design.elevator.models.Elevator;
-import system.design.elevator.models.ElevatorButton;
-import system.design.elevator.models.ElevatorSystem;
 
 import java.util.Scanner;
 
@@ -48,8 +43,6 @@ public class Main {
                 default:
                     System.out.println("invalid Choice! Please try again. ");
             }
-
-
 
 
         }

@@ -13,6 +13,7 @@ public class Door {
     public Door() {
     }
 
+
     public void openDoor() {
         doorAction = DoorAction.OPEN;
     }

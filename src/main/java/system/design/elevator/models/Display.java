@@ -2,9 +2,6 @@ package system.design.elevator.models;
 
 import system.design.elevator.enums.Direction;
 import system.design.elevator.enums.FloorNumber;
-import system.design.elevator.interfaces.Pannel;
-
-import java.security.PublicKey;
 
 public class Display {
 

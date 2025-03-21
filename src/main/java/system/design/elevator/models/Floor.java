@@ -5,9 +5,9 @@ import system.design.elevator.enums.FloorNumber;
 public class Floor {
 
     private FloorNumber floorNumber;
-    private OutsidePannel outsidePannel;
+    private OutsidePanel outsidePannel;
 
-    public Floor(FloorNumber floorNumber, OutsidePannel outsidePannel) {
+    public Floor(FloorNumber floorNumber, OutsidePanel outsidePannel) {
         this.floorNumber = floorNumber;
         this.outsidePannel = outsidePannel;
     }
@@ -20,11 +20,11 @@ public class Floor {
         this.floorNumber = floorNumber;
     }
 
-    public OutsidePannel getOutsidePannel() {
+    public OutsidePanel getOutsidePannel() {
         return outsidePannel;
     }
 
-    public void setOutsidePannel(OutsidePannel outsidePannel) {
+    public void setOutsidePannel(OutsidePanel outsidePannel) {
         this.outsidePannel = outsidePannel;
     }
 }

@@ -2,26 +2,26 @@ package system.design.elevator.models;
 
 import system.design.elevator.enums.DoorAction;
 import system.design.elevator.enums.FloorNumber;
-import system.design.elevator.interfaces.Pannel;
+import system.design.elevator.interfaces.Panel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InsidePannel implements Pannel {
+public class InsidePanel implements Panel {
 
     private List<ElevatorButton> elevatorButtonList;
     private List<DoorButton> doorButtons;
 
-    public InsidePannel() {
+    public InsidePanel() {
 
         elevatorButtonList = new ArrayList<>();
         doorButtons = new ArrayList<>();
 
-        for (int i = 0; i < 15; i++){
+        for (int i = 0; i < FloorNumber.values().length; i++){
             elevatorButtonList.add(new ElevatorButton(false, FloorNumber.values()[i]));
         }
 
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < DoorAction.values().length; i++){
             doorButtons.add(new DoorButton(false, DoorAction.values()[i]));
         }
     }

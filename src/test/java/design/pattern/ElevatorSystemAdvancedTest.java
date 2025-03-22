@@ -9,14 +9,13 @@ import system.design.elevator.models.*;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+import static org.junit.jupiter.api.Assertions.*;
 public class ElevatorSystemAdvancedTest {
 
     private ElevatorSystem elevatorSystem;
     private Elevator elevator1;
     private Elevator elevator2;
-
+    private Elevator elevator3;
 
     @BeforeEach
     void setUP(){
@@ -24,8 +23,9 @@ public class ElevatorSystemAdvancedTest {
         elevatorSystem  = ElevatorSystem.getInstance();
 
         // Initializing them at different floors
-        elevator1 = new Elevator(ElevatorNumber.ELEVATOR_NUMBER_ONE, new Door(), new InsidePanel(), new Display(), FloorNumber.FLOOR_NUMBER_ONE, Direction.IDLE);
-        elevator2 = new Elevator(ElevatorNumber.ELEVATOR_NUMBER_THREE, new Door(), new InsidePanel(), new Display(), FloorNumber.FLOOR_NUMBER_FIVE, Direction.IDLE);
+        elevator1 = new Elevator(ElevatorNumber.ELEVATOR_NUMBER_ONE, new Door(), new insidePanel(), new Display(), FloorNumber.FLOOR_NUMBER_ONE, Direction.IDLE);
+        elevator2 = new Elevator(ElevatorNumber.ELEVATOR_NUMBER_TWO, new Door(), new insidePanel(), new Display(), FloorNumber.FLOOR_NUMBER_SEVEN, Direction.IDLE);
+        elevator3 = new Elevator(ElevatorNumber.ELEVATOR_NUMBER_THREE, new Door(), new insidePanel(), new Display(), FloorNumber.FLOOR_NUMBER_ELEVEN, Direction.IDLE);
 
         Floor floor1 = new Floor(FloorNumber.FLOOR_NUMBER_ONE, null);
         Floor floor5 = new Floor(FloorNumber.FLOOR_NUMBER_FIVE, null);
@@ -37,9 +37,30 @@ public class ElevatorSystemAdvancedTest {
     }
 
 
+    /**
+     * Test case to ensure multiple elevators are handled efficiently
+     */
     @Test
     void testRequestClosestElevator(){
         Elevator requestedElevator = elevatorSystem.requestElevator(Direction.UP, new Floor(FloorNumber.FLOOR_NUMBER_FOURTEEN, null));
-        assertNotNull(requestedElevator, "An Elevator should be assigned");
+
+        assertNotNull(requestedElevator, "An elevator should be assigned");
+        assertEquals(ElevatorNumber.ELEVATOR_NUMBER_TWO, requestedElevator.getElevatorNumber(),
+                            "Elevator 2 (closer) should be assigned instead of elevator 1");
+
+    }
+
+
+    /** Test case to verify elevator doesn't take invalid floor inputs */
+    @Test
+    void testInvalidFloorRequest(){
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            elevatorSystem.selectFloor(null, elevator1); // Passing null simulates an invalid floor selection
+        });
+
+        System.out.println("Exception Message: " + exception.getMessage());
+
+        assertTrue(exception.getMessage().contains("Invalid floor number"),
+                "Should throw exception for invalid floor selection");
     }
 }

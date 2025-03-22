@@ -11,6 +11,7 @@ public class Door {
     }
 
     public Door() {
+        this.doorAction = DoorAction.CLOSE;
     }
 
 
@@ -18,7 +19,14 @@ public class Door {
         doorAction = DoorAction.OPEN;
     }
 
+
     public void closeDoor() {
         doorAction = DoorAction.CLOSE;
     }
+
+
+    public boolean isOpen() {
+        return doorAction == DoorAction.OPEN;
+    }
+
 }

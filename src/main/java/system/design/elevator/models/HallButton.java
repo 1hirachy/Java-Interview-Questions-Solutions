@@ -41,4 +41,9 @@ public class HallButton implements Button {
         return this.status;
     }
 
+    // New method if required in other classes
+    public boolean isFloorButtonPressed() {
+        return status;
+    }
+
 }

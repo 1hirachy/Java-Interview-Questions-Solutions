@@ -7,8 +7,8 @@ import java.util.List;
 
 public class ElevatorSystem {
 
-    public List <Elevator> elevators;
-    private List <Floor> floors;
+    public List<Elevator> elevators;
+    private List<Floor> floors;
 
     private ElevatorSystem() {
     }
@@ -33,10 +33,10 @@ public class ElevatorSystem {
     private static volatile ElevatorSystem elevatorSystemInstance;
 
 
-    public static ElevatorSystem getInstance(){
-        if (elevatorSystemInstance == null){
-            synchronized (ElevatorSystem.class){
-                if (elevatorSystemInstance == null){
+    public static ElevatorSystem getInstance() {
+        if (elevatorSystemInstance == null) {
+            synchronized (ElevatorSystem.class) {
+                if (elevatorSystemInstance == null) {
                     return elevatorSystemInstance = new ElevatorSystem();
                 }
             }
@@ -45,30 +45,42 @@ public class ElevatorSystem {
         return elevatorSystemInstance;
     }
 
-    public Elevator requestElevator(Direction direction, Floor floor){
-        //TODO: returning elevator using smart dispatch, setting up the properties of the elevator
-        return null;
+    public Elevator requestElevator(Direction direction, Floor floor) {
+        //Implemented: returning elevator using smart dispatch, setting up the properties of the elevator
+        Elevator closestElevator = null;
+        int minDistance = Integer.MAX_VALUE;
+
+        for (Elevator elevator : elevators) {
+            int distance = Math.abs(elevator.getCurrentFloorNumber().getValue() - floor.getFloorNumber().getValue());
+
+            // Find the closest available elevator
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestElevator = elevator;
+            }
+
+        }
+
+        if (closestElevator != null) {
+            closestElevator.setCurrentFloorNumber(floor.getFloorNumber());
+        }
+        return closestElevator;
     }
 
-    public void openDoor(Elevator elevator){
+    public void openDoor(Elevator elevator) {
         elevator.getDoor().openDoor();
     }
 
-    public void closeDoor(Elevator elevator){
+    public void closeDoor(Elevator elevator) {
         elevator.getDoor().closeDoor();
     }
 
-    public void selectFloor(FloorNumber floorNumber, Elevator elevator){
-        elevator.getInsidePannel().pressFloorButtons(floorNumber.ordinal());
+    public void selectFloor(FloorNumber floorNumber, Elevator elevator) {
+        if (floorNumber == null) {
+            throw new IllegalArgumentException("Invalid floor number: " + floorNumber);
+        }
+        elevator.getInsidePanel().pressFloorButtons(floorNumber.ordinal());
     }
-
-
-
-
-
-
-
-
 
 
 }

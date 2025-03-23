@@ -10,7 +10,7 @@ import system.design.elevator.models.*;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
-public class ElevatorSystemAdvancedTest {
+public class ComplexElevatorSystemTest {
 
     private ElevatorSystem elevatorSystem;
     private Elevator elevator1;
@@ -32,7 +32,7 @@ public class ElevatorSystemAdvancedTest {
         Floor floor11 = new Floor(FloorNumber.FLOOR_NUMBER_ELEVEN, null);
 
 
-        elevatorSystem.setElevators(Arrays.asList(elevator1, elevator2));
+        elevatorSystem.setElevators(Arrays.asList(elevator1, elevator2, elevator3));
         elevatorSystem.setFloors(Arrays.asList(floor1, floor5, floor11));
     }
 
@@ -63,4 +63,60 @@ public class ElevatorSystemAdvancedTest {
         assertTrue(exception.getMessage().contains("Invalid floor number"),
                 "Should throw exception for invalid floor selection");
     }
+
+    /** Test case to check elevator moving to the right direction */
+    @Test
+    void testElevatorDirection(){
+        elevator1.setCurrentDirection(Direction.UP);
+        assertEquals(Direction.UP, elevator1.getCurrentDirection(), "Elevator direction should be UP");
+
+        elevator2.setCurrentDirection(Direction.IDLE);
+        assertEquals(Direction.IDLE, elevator1.getCurrentDirection(), "Elevator direction should be IDLE");
+
+        elevator3.setCurrentDirection(Direction.UP);
+        assertEquals(Direction.DOWN, elevator3.getCurrentDirection(), "Elevator direction should be DOWN");
+    }
+
+    /** Test case for handling multiple elevator request */
+    @Test
+    void testMultipleElevatorRequest(){
+
+        Elevator firstRequest = elevatorSystem.requestElevator(Direction.UP, new Floor(FloorNumber.FLOOR_NUMBER_EIGHT, null));
+        Elevator secondRequest = elevatorSystem.requestElevator(Direction.UP, new Floor(FloorNumber.FLOOR_NUMBER_ELEVEN, null));
+
+        assertNotNull(firstRequest, "First request should be assigned to an elevator");
+        assertNotNull(secondRequest, "Second request should also be assigned an elevator");
+        assertNotEquals(firstRequest, secondRequest, "There should be two different elevators completing the request");
+
+    }
+
+    /** Test case to simulate all elevators are busy */
+    @Test
+    void testIfAllElevatorsAreBusy(){
+
+        elevator1.setCurrentDirection(Direction.UP);
+        elevator2.setCurrentDirection(Direction.UP);
+        elevator3.setCurrentDirection(Direction.UP);
+
+        Elevator newRequest = elevatorSystem.requestElevator(Direction.DOWN, new Floor(FloorNumber.FLOOR_NUMBER_ONE, null));
+        assertNull(newRequest, "Should return null if all elevators are busy");
+    }
+
+
+    /** Test case associated with elevator reaching towards destination */
+    @Test
+    void testingElevatorReachesDestination(){
+        Elevator assignedElevator = elevatorSystem.requestElevator(Direction.DOWN, new Floor(FloorNumber.FLOOR_NUMBER_THREE, null));
+        assertNotNull(assignedElevator, "An elevator should be assigned");
+
+        assignedElevator.setCurrentFloorNumber(FloorNumber.FLOOR_NUMBER_SEVEN);
+        assertEquals(FloorNumber.FLOOR_NUMBER_SEVEN, assignedElevator.getCurrentFloorNumber());
+    }
+
+
+
+
+
+
+
 }

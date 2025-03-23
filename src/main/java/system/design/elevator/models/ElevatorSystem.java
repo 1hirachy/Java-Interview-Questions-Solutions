@@ -46,26 +46,35 @@ public class ElevatorSystem {
     }
 
     public Elevator requestElevator(Direction direction, Floor floor) {
+
         //Implemented: returning elevator using smart dispatch, setting up the properties of the elevator
         Elevator closestElevator = null;
         int minDistance = Integer.MAX_VALUE;
 
         for (Elevator elevator : elevators) {
+            // skipping busy elevators
+            if (elevator.getCurrentDirection() != Direction.IDLE) {
+                continue;
+            }
+
             int distance = Math.abs(elevator.getCurrentFloorNumber().getValue() - floor.getFloorNumber().getValue());
 
-            // Find the closest available elevator
+            // find the closest available elevator
             if (distance < minDistance) {
                 minDistance = distance;
                 closestElevator = elevator;
             }
-
         }
 
         if (closestElevator != null) {
             closestElevator.setCurrentFloorNumber(floor.getFloorNumber());
+
+            // set elevators current direction
+            closestElevator.setCurrentDirection(direction);
         }
         return closestElevator;
     }
+
 
     public void openDoor(Elevator elevator) {
         elevator.getDoor().openDoor();

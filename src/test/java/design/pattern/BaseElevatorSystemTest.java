@@ -12,7 +12,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ElevatorSystemTest {
+public class BaseElevatorSystemTest {
 
     private Elevator elevator;
     private ElevatorSystem elevatorSystem;

@@ -8,16 +8,16 @@ public class Elevator {
 
     private ElevatorNumber elevatorNumber;
     private Door door;
-    private InsidePannel insidePannel;
+    private insidePanel insidePanel;
     private Display display;
     private FloorNumber currentFloorNumber;
     private Direction currentDirection;
 
 
-    public Elevator(ElevatorNumber elevatorNumber, Door door, InsidePannel insidePannel, Display display, FloorNumber currentFloorNumber, Direction currentDirection) {
+    public Elevator(ElevatorNumber elevatorNumber, Door door, insidePanel insidePanel, Display display, FloorNumber currentFloorNumber, Direction currentDirection) {
         this.elevatorNumber = elevatorNumber;
         this.door = door;
-        this.insidePannel = insidePannel;
+        this.insidePanel = insidePanel;
         this.display = display;
         this.currentFloorNumber = currentFloorNumber;
         this.currentDirection = currentDirection;
@@ -42,12 +42,12 @@ public class Elevator {
         this.door = door;
     }
 
-    public InsidePannel getInsidePannel() {
-        return insidePannel;
+    public insidePanel getInsidePanel() {
+        return insidePanel;
     }
 
-    public void setInsidePannel(InsidePannel insidePannel) {
-        this.insidePannel = insidePannel;
+    public void setInsidePanel(insidePanel insidePanel) {
+        this.insidePanel = insidePanel;
     }
 
     public Display getDisplay() {

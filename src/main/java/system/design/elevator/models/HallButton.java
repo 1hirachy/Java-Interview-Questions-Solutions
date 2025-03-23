@@ -7,7 +7,10 @@ public class HallButton implements Button {
     private boolean status;
     private Direction direction;
 
-    public HallButton() {
+    // Updating to make sure direction is always set
+    public HallButton(Direction direction) {
+        this.status = false; // Defaulted to unpressed state
+        this.direction = direction;
     }
 
     public HallButton(boolean status, Direction direction) {
@@ -34,7 +37,12 @@ public class HallButton implements Button {
 
 
     public boolean press(){
-        status =! status;
+        this.status  = !this.status;
+        return this.status;
+    }
+
+    // New method if required in other classes
+    public boolean isFloorButtonPressed() {
         return status;
     }
 

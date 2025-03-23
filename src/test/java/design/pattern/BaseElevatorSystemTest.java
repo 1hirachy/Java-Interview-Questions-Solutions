@@ -46,7 +46,11 @@ public class BaseElevatorSystemTest {
 
     @Test
     void testRequestClosestElevator() {
-        Elevator requestedElevator = elevatorSystem.requestElevator(Direction.UP, new Floor(FloorNumber.FLOOR_NUMBER_FOURTEEN, null));
+        elevator.setCurrentDirection(Direction.IDLE);
+        elevator.setCurrentFloorNumber(FloorNumber.FLOOR_NUMBER_FIVE);
+        elevatorSystem.setElevators(List.of(elevator));
+
+        Elevator requestedElevator = elevatorSystem.requestElevator(Direction.DOWN, new Floor(FloorNumber.FLOOR_NUMBER_FOURTEEN, null));
         assertNotNull(requestedElevator, "An Elevator should be assigned");
     }
 

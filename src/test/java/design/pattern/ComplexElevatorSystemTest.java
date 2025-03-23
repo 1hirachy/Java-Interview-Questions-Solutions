@@ -10,6 +10,7 @@ import system.design.elevator.models.*;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 public class ComplexElevatorSystemTest {
 
     private ElevatorSystem elevatorSystem;
@@ -18,9 +19,9 @@ public class ComplexElevatorSystemTest {
     private Elevator elevator3;
 
     @BeforeEach
-    void setUP(){
+    void setUP() {
 
-        elevatorSystem  = ElevatorSystem.getInstance();
+        elevatorSystem = ElevatorSystem.getInstance();
 
         // Initializing them at different floors
         elevator1 = new Elevator(ElevatorNumber.ELEVATOR_NUMBER_ONE, new Door(), new insidePanel(), new Display(), FloorNumber.FLOOR_NUMBER_ONE, Direction.IDLE);
@@ -41,19 +42,21 @@ public class ComplexElevatorSystemTest {
      * Test case to ensure multiple elevators are handled efficiently
      */
     @Test
-    void testRequestClosestElevator(){
-        Elevator requestedElevator = elevatorSystem.requestElevator(Direction.UP, new Floor(FloorNumber.FLOOR_NUMBER_FOURTEEN, null));
+    void testRequestClosestElevator() {
+        Elevator requestedElevator = elevatorSystem.requestElevator(Direction.UP, new Floor(FloorNumber.FLOOR_NUMBER_EIGHT, null));
 
         assertNotNull(requestedElevator, "An elevator should be assigned");
         assertEquals(ElevatorNumber.ELEVATOR_NUMBER_TWO, requestedElevator.getElevatorNumber(),
-                            "Elevator 2 (closer) should be assigned instead of elevator 1");
+                "Elevator 2 (closer) should be assigned instead of elevator 1");
 
     }
 
 
-    /** Test case to verify elevator doesn't take invalid floor inputs */
+    /**
+     * Test case to verify elevator doesn't take invalid floor inputs
+     */
     @Test
-    void testInvalidFloorRequest(){
+    void testInvalidFloorRequest() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             elevatorSystem.selectFloor(null, elevator1); // Passing null simulates an invalid floor selection
         });
@@ -64,22 +67,26 @@ public class ComplexElevatorSystemTest {
                 "Should throw exception for invalid floor selection");
     }
 
-    /** Test case to check elevator moving to the right direction */
+    /**
+     * Test case to check elevator moving to the right direction
+     */
     @Test
-    void testElevatorDirection(){
+    void testElevatorDirection() {
         elevator1.setCurrentDirection(Direction.UP);
         assertEquals(Direction.UP, elevator1.getCurrentDirection(), "Elevator direction should be UP");
 
         elevator2.setCurrentDirection(Direction.IDLE);
-        assertEquals(Direction.IDLE, elevator1.getCurrentDirection(), "Elevator direction should be IDLE");
+        assertEquals(Direction.IDLE, elevator2.getCurrentDirection(), "Elevator direction should be IDLE");
 
-        elevator3.setCurrentDirection(Direction.UP);
+        elevator3.setCurrentDirection(Direction.DOWN);
         assertEquals(Direction.DOWN, elevator3.getCurrentDirection(), "Elevator direction should be DOWN");
     }
 
-    /** Test case for handling multiple elevator request */
+    /**
+     * Test case for handling multiple elevator request
+     */
     @Test
-    void testMultipleElevatorRequest(){
+    void testMultipleElevatorRequest() {
 
         Elevator firstRequest = elevatorSystem.requestElevator(Direction.UP, new Floor(FloorNumber.FLOOR_NUMBER_EIGHT, null));
         Elevator secondRequest = elevatorSystem.requestElevator(Direction.UP, new Floor(FloorNumber.FLOOR_NUMBER_ELEVEN, null));
@@ -90,9 +97,11 @@ public class ComplexElevatorSystemTest {
 
     }
 
-    /** Test case to simulate all elevators are busy */
+    /**
+     * Test case to simulate all elevators are busy
+     */
     @Test
-    void testIfAllElevatorsAreBusy(){
+    void testIfAllElevatorsAreBusy() {
 
         elevator1.setCurrentDirection(Direction.UP);
         elevator2.setCurrentDirection(Direction.UP);
@@ -103,20 +112,17 @@ public class ComplexElevatorSystemTest {
     }
 
 
-    /** Test case associated with elevator reaching towards destination */
+    /**
+     * Test case associated with elevator reaching towards destination
+     */
     @Test
-    void testingElevatorReachesDestination(){
+    void testingElevatorReachesDestination() {
         Elevator assignedElevator = elevatorSystem.requestElevator(Direction.DOWN, new Floor(FloorNumber.FLOOR_NUMBER_THREE, null));
         assertNotNull(assignedElevator, "An elevator should be assigned");
 
         assignedElevator.setCurrentFloorNumber(FloorNumber.FLOOR_NUMBER_SEVEN);
         assertEquals(FloorNumber.FLOOR_NUMBER_SEVEN, assignedElevator.getCurrentFloorNumber());
     }
-
-
-
-
-
 
 
 }

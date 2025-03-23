@@ -48,6 +48,13 @@ public class ElevatorSystem {
     public Elevator requestElevator(Direction direction, Floor floor) {
 
         //Implemented: returning elevator using smart dispatch, setting up the properties of the elevator
+
+
+        if (elevators == null || elevators.isEmpty()) {
+            return null; // No elevators available
+        }
+
+
         Elevator closestElevator = null;
         int minDistance = Integer.MAX_VALUE;
 
@@ -57,9 +64,13 @@ public class ElevatorSystem {
                 continue;
             }
 
+            if (elevator.getCurrentDirection() == null) {
+                continue;
+            }
+
             int distance = Math.abs(elevator.getCurrentFloorNumber().getValue() - floor.getFloorNumber().getValue());
 
-            // find the closest available elevator
+            // find the closest idle elevator
             if (distance < minDistance) {
                 minDistance = distance;
                 closestElevator = elevator;

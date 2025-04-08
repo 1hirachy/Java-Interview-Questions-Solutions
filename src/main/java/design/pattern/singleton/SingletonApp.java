@@ -10,32 +10,19 @@ public class SingletonApp {
 
     public static void main(String[] args) {
 
-        logger.info("If we see the same value, then singleton was reused,if we see different value," +
-                        " then 2 singleton were created"  +
-                        "RESULT: ");
+        logger.info("Testing Singleton instance...");
 
-        Thread threadFoo = new Thread(new ThreadFoo());
-        Thread threadBar = new Thread(new ThreadBar());
+        Singleton instance1 = Singleton.getInstance("FOO");
+        Singleton instance2 = Singleton.getInstance("BAR");
 
-        threadFoo.start();
-        threadBar.start();
-    }
-
-
-
-    static class ThreadFoo implements Runnable {
-        @Override
-        public void run() {
-            Singleton singleton = Singleton.getInstance("FOO");
-            System.out.println(singleton.value);
+        if (instance1 == instance2) {
+            logger.info("Same Singleton instance re-used");
+        } else {
+            logger.warning("Different instance detected!");
         }
+
+        logger.info("Singleton Value: " + instance1);
     }
 
-    static class ThreadBar implements Runnable{
-        @Override
-        public void run(){
-            Singleton singleton = Singleton.getInstance("Bar");
-            System.out.println(singleton.value);
-        }
-    }
+
 }

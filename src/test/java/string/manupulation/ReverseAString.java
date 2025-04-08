@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
      * Write a java program to reverse the given String
      */
 
-    public class ReverseString {
+    public class ReverseAString {
 
     public static String usingStringBuilder(String str) {
 

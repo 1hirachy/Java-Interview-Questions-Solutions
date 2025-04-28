@@ -1,0 +1,23 @@
+name: Java Nightly Build (Scheduled)
+
+on:
+  schedule:
+    - cron: '0 5 * * *'  # Daily at 5:00 AM UTC (~midnight EST)
+  workflow_dispatch:     # Optional: Manual trigger for testing
+
+jobs:
+  nightly-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Nightly Build with Maven
+        run: mvn -B package --file pom.xml || { echo 'Nightly build failed'; exit 1; }

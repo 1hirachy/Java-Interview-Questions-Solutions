@@ -17,7 +17,7 @@ public class TwoSum {
 
              // If the complement exists in the map, return the indices
             if(numMap.containsKey(complement)){
-            return new int[] {complement, nums[i]};
+            return new int[] {numMap.get(complement), i};
             }
 
             // Otherwise, add the current number and its index to the map
@@ -31,8 +31,8 @@ public class TwoSum {
 
      public static void main(String[] args) {
 
-        int [] input = {0, 4, 3, 7, 8, 9};
-        int target = 5;
+        int [] input = {3, 3};
+        int target = 6;
 
        // twoSum(input, target);
         System.out.println(Arrays.toString(twoSum(input, target)));

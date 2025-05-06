@@ -1,10 +1,16 @@
 package algorithm;
 
-import java.util.*;
+import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class TwoSum {
 
-    public static int [] twoSum(int [] nums, int target){
+    public static int [] twoSum(int[] nums, int target){
 
         // create a map to store the numbers and their indices
         Map<Integer, Integer> numMap = new LinkedHashMap<>();
@@ -37,5 +43,14 @@ public class TwoSum {
        // twoSum(input, target);
         System.out.println(Arrays.toString(twoSum(input, target)));
 
+
+    }
+    @Test
+    void testTwoSum(){
+
+        int [] input = {3, 3};
+        int target = 6;
+        int [] expected = {0, 1};
+        assertArrayEquals(expected, twoSum(input, target));
     }
 }

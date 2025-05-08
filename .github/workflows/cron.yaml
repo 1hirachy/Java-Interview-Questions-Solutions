@@ -1,4 +1,4 @@
-name: Java Nightly Build (Scheduled)
+name: Daily Regression (Scheduled)
 
 on:
   schedule:
@@ -19,5 +19,46 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Nightly Build with Maven
-        run: mvn -B package --file pom.xml || { echo 'Nightly build failed'; exit 1; }
+      - name: Daily Regression
+        id: build
+        run: mvn -B package --file pom.xml
+
+      - name: Notify Email on Success
+        if: success()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: " Daily Regression Build Succeeded on ${{ env.BRANCH_NAME }}"
+          to: md.z.haque.chowdhury@gmail.com
+          from: Github Actions Bot
+          body: |
+            Daily Regression Build Succeeded!
+            
+            • Branch: ${{ env.BRANCH_NAME }}
+            • Commit:
+            
+            View build logs: https://github.com/1hirachy/Java-Interview-Questions-Solutions/actions
+
+
+
+      - name: Notify Email on Failure
+        if: success()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: " Daily Regression Build Failed on ${{ env.BRANCH_NAME }}"
+          to: md.z.haque.chowdhury@gmail.com
+          from: Github Actions Bot
+          body: |
+            Daily Regression Build Failed!
+            
+            • Branch: ${{ env.BRANCH_NAME }}
+            • Commit:
+            
+            Please check logs: https://github.com/1hirachy/Java-Interview-Questions-Solutions/actions

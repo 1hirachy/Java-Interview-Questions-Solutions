@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
      * @return true if they are anagrams of each other
      */
 
-public class AnagramTest {
+public class Anagram {
 
    public static boolean isAnagram(String s1, String s2) {
 

@@ -1,8 +1,9 @@
 package string.manupulation;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-    //Write a java program to remove all the spaces exist in the String
+//Write a java program to remove all the spaces exist in the String
 
 public class RemoveAllTheSpaces {
 
@@ -29,6 +30,6 @@ public class RemoveAllTheSpaces {
     void testRemoveSpaces() {
 
         String input = "Computer is computing !";
-        System.out.println(removeSpaces(input));
+        Assertions.assertEquals("Computeriscomputing!", removeSpaces(input));
     }
 }

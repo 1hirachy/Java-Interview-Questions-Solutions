@@ -1,10 +1,12 @@
 package string.manupulation;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
     /**
      * Wrote a java program to check if the String is Palindrome
      */
+
 public class Palindrome {
 
     public static boolean isPalindrome(String str) {
@@ -28,7 +30,6 @@ public class Palindrome {
     void testIsPalindrome() {
 
         String input = "RAcecar";
-        System.out.println(isPalindrome(input));
-
+        Assertions.assertTrue(isPalindrome(input));
     }
 }

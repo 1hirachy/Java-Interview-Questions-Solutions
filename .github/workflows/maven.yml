@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Build with Maven
 
 on:
   push:
@@ -29,6 +29,27 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml || { echo 'Build failed'; exit 1; }
 
+
+      - name: Notify Email on Failure
+        if: failure()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "Build Failed on ${{ env.BRANCH_NAME }}"
+          to: md.z.haque.chowdhury@gmail.com
+          from: Github Actions Bot
+          body: |
+            Daily Regression Build Failed!
+
+            • Branch: ${{ env.BRANCH_NAME }}
+            • Commit:
+
+            Please check logs: https://github.com/1hirachy/Java-Interview-Questions-Solutions/actions
+      
+      
 
       # Optionally comment this out if it's causing issues
       # - name: Update dependency graph

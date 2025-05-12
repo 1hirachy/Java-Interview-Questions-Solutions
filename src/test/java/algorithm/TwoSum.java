@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class TwoSum {
 
-    public static int [] twoSum(int[] nums, int target){
+    public static int[] twoSum(int[] nums, int target) {
 
         // create a map to store the numbers and their indices
         Map<Integer, Integer> numMap = new LinkedHashMap<>();
@@ -20,9 +20,9 @@ public class TwoSum {
             // Calculate the complement of the current number
             int complement = target - nums[i];
 
-             // If the complement exists in the map, return the indices
-            if(numMap.containsKey(complement)){
-            return new int[] {numMap.get(complement), i};
+            // If the complement exists in the map, return the indices
+            if (numMap.containsKey(complement)) {
+                return new int[]{numMap.get(complement), i};
             }
 
             // Otherwise, add the current number and its index to the map
@@ -35,11 +35,11 @@ public class TwoSum {
 
 
     @Test
-    void testTwoSum(){
+    void testTwoSum() {
 
-        int [] input = {3, 3};
+        int[] input = {3, 3};
         int target = 6;
-        int [] expected = {0, 1};
+        int[] expected = {0, 1};
         assertArrayEquals(expected, twoSum(input, target));
     }
 }

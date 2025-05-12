@@ -32,15 +32,6 @@ public class IsPalindrome {
     }
 
 
-    public static void main(String[] args) {
-
-        int input = 121;
-        int badInput = 1212;
-
-        System.out.println(isPalindrome(input));
-        System.out.println(isPalindrome(badInput));
-    }
-
     @Test
     void testingPalindrome() {
         int input = 121;

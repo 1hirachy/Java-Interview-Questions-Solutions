@@ -27,7 +27,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: mvn -B package --file pom.xml || { echo 'Build failed'; exit 1; }
+        run: mvn -B package --file pom.xml
 
 
       - name: Notify Email on Failure
@@ -42,7 +42,7 @@ jobs:
           to: md.z.haque.chowdhury@gmail.com
           from: Github Actions Bot
           body: |
-            Daily Regression Build Failed!
+            Daily Regression Build for Java-Interview-Questions-Solutions Failed!
 
             • Branch: ${{ env.BRANCH_NAME }}
             • Commit:

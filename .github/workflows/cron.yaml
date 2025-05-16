@@ -23,24 +23,25 @@ jobs:
         id: build
         run: mvn -B package --file pom.xml
 
-      - name: Notify Email on Success
-        if: success()
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: " Daily Regression Build Succeeded on ${{ env.BRANCH_NAME }}"
-          to: md.z.haque.chowdhury@gmail.com
-          from: Github Actions Bot
-          body: |
-            Daily Regression Build Succeeded!
-            
-            • Branch: ${{ env.BRANCH_NAME }}
-            • Commit:
-            
-            View build logs: https://github.com/1hirachy/Java-Interview-Questions-Solutions/actions
+#      Skipping successful build for now
+#      - name: Notify Email on Success
+#        if: success()
+#        uses: dawidd6/action-send-mail@v3
+#        with:
+#          server_address: smtp.gmail.com
+#          server_port: 465
+#          username: ${{ secrets.EMAIL_USERNAME }}
+#          password: ${{ secrets.EMAIL_PASSWORD }}
+#          subject: " Daily Regression Build Succeeded on ${{ env.BRANCH_NAME }}"
+#          to: md.z.haque.chowdhury@gmail.com
+#          from: Github Actions Bot
+#          body: |
+#            Daily Regression Build for Java-Interview-Questions-Solutions Succeeded!
+#
+#            • Branch: ${{ env.BRANCH_NAME }}
+#            • Commit:
+#
+#            View build logs: https://github.com/1hirachy/Java-Interview-Questions-Solutions/actions
 
 
 

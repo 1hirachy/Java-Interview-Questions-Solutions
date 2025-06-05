@@ -2,9 +2,12 @@ package string.manupulation;
 
 import org.junit.jupiter.api.Test;
 
-    /**
-     * Write a java program to find total number of words in a String?
-     */
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+/**
+ * Write a java program to find total number of words in a String?
+ */
 
 public class TotalNumberOfWords {
 
@@ -30,9 +33,11 @@ public class TotalNumberOfWords {
 
         String input = "Hello, Here is the sample string with multiple words";
         String input2 = " ";
+        int result = 9;
 
-        System.out.println("Number of words for Input: " + numberOfWords(input));
-        System.out.println("Number of words for Input: " + numberOfWords(input2));
+
+        assertEquals(numberOfWords(input), result);
+        assertNotEquals(numberOfWords(input2), result);
 
     }
 }

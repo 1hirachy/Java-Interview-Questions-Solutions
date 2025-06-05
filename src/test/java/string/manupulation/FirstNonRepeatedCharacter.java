@@ -6,9 +6,11 @@ import org.junit.jupiter.api.Test;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-    /**
-     * Write a java program to find the first non-repeated character in a String?
-     */
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+/**
+ * Write a java program to find the first non-repeated character in a String?
+ */
 public class FirstNonRepeatedCharacter {
 
     public static char firstNonRepeatedCharacter(String str) {
@@ -37,10 +39,12 @@ public class FirstNonRepeatedCharacter {
 
 
     @Test
-    void testFindNonRepeatedCharacter(){
+    void testFindNonRepeatedCharacter() {
 
-        String input = "Abaafwfswqq3" ;
-        System.out.println(firstNonRepeatedCharacter(input));
-        }
+        String input = "Abaafwfswqq3";
+        char expected = 'b';
+        assertEquals(expected, firstNonRepeatedCharacter(input));
+
+    }
 
 }

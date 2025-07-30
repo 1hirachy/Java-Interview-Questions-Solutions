@@ -1,4 +1,3 @@
-
 package string.manupulation;
 
 import org.junit.jupiter.api.Test;
@@ -44,7 +43,5 @@ public class FirstNonRepeatedCharacter {
         String input = "Abaafwfswqq3";
         char expected = 'b';
         assertEquals(expected, firstNonRepeatedCharacter(input));
-
     }
-
 }

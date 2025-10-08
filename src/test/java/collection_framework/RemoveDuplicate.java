@@ -21,8 +21,17 @@ public class RemoveDuplicate {
 
 
     @Test
-    public void testRemoveDuplicateWithDuplicates() {
+    void testRemovingDuplicateElements() {
         List<String> input = Arrays.asList("apple", "banana", "apple", "orange", "banana");
+        Set<String> expectedOutput = new HashSet<>(Arrays.asList("apple", "banana", "orange"));
+        Set<String> actualOutput = RemoveDuplicate.removeDuplicate(input);
+
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    void testRemovingNonDuplicateElements() {
+        List<String> input = Arrays.asList("apple", "banana", "apple", "orange");
         Set<String> expectedOutput = new HashSet<>(Arrays.asList("apple", "banana", "orange"));
         Set<String> actualOutput = RemoveDuplicate.removeDuplicate(input);
 
